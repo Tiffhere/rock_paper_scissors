@@ -9,8 +9,7 @@ const paper_div = document.getElementById('p');
 const scissors_div = document.getElementById('s');
 const single = document.querySelector(".single");
 const best3 = document.querySelector(".best3");
-
-
+let mode;
 
 function getComputerChoice(){
     const choices = ['r', 'p', 's'];
@@ -63,28 +62,46 @@ function game(userChoice){
       draw(userChoice, computerChoice);
       break;
   }
+  if (mode === 'single') {
+    // end game, hide game UI
+    // reset user and compuer score
+  } else if (mode === 'best_of_3') {
+    if (userScore === 2 || computerScore === 2) {
+      // end game, hide game UI
+      // reset user and compuer score
+    }
+  }
 }
 
-function main(){
-  rock_div.addEventListener('click', function() {
-    game("r");
-  })
+// these listeners should be added front the start
+rock_div.addEventListener('click', function() {
+  game("r");
+})
 
-  paper_div.addEventListener('click', function() {
-    game("p");
-  })
+paper_div.addEventListener('click', function() {
+  game("p");
+})
 
-  scissors_div.addEventListener('click', function() {
-    game("s");
-  })
+scissors_div.addEventListener('click', function() {
+  game("s");
+})
+
+var singleRound = function () {
+  // 1. show game UI, using css display property
+  // 2. set mode to single
+  mode = 'single';
 }
 
-main();
+var best3Mode = function () {
+  // 1. show game UI, using css display property
+  // 2. set mode to best_of_3
+  mode = 'best_of_3';
+}  
 
-function singleround(){
-  single.addEventListener('click', function(){
-    main();
-  })
-}
+single.addEventListener('click', function(){
+  singleRound();
+})
 
-singleround();
+best3..addEventListener('click', function(){
+  best3Mode();
+})
