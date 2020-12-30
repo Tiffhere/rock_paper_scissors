@@ -64,11 +64,17 @@ function game(userChoice){
   }
   if (mode === 'single') {
     // end game, hide game UI
+    document.getElementById("game-ui").style.display="none";
     // reset user and compuer score
+    userScore_span.innerHTML = 0;
+    computerScore_span.innerHTML = 0;
   } else if (mode === 'best_of_3') {
     if (userScore === 2 || computerScore === 2) {
       // end game, hide game UI
+      document.getElementById("game-ui").style.display="none";
       // reset user and compuer score
+      userScore_span.innerHTML = 0;
+      computerScore_span.innerHTML = 0;
     }
   }
 }
@@ -88,15 +94,17 @@ scissors_div.addEventListener('click', function() {
 
 var singleRound = function () {
   // 1. show game UI, using css display property
+  document.getElementById("game-ui").style.display="inline";
   // 2. set mode to single
   mode = 'single';
 }
 
 var best3Mode = function () {
   // 1. show game UI, using css display property
+  document.getElementById("game-ui").style.display="inline";
   // 2. set mode to best_of_3
   mode = 'best_of_3';
-}  
+}
 
 single.addEventListener('click', function(){
   singleRound();
