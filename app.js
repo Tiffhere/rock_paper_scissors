@@ -27,8 +27,6 @@ function win(userChoice, computerChoice){
   userScore++;
   userScore_span.innerHTML = userScore;
   computerScore_span.innerHTML = computerScore;
-  const smallUserWord = "user".fontsize(3).sub();
-  const smallCompWord = "comp".fontsize(3).sub();
   window.alert(`${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You win!`);
 }
 
@@ -65,6 +63,7 @@ function game(userChoice){
   if (mode === 'single') {
     // end game, hide game UI
     document.getElementById("game-ui").style.display="none";
+
     // reset user and compuer score
     userScore_span.innerHTML = 0;
     computerScore_span.innerHTML = 0;
@@ -95,6 +94,7 @@ scissors_div.addEventListener('click', function() {
 var singleRound = function () {
   // 1. show game UI, using css display property
   document.getElementById("game-ui").style.display="inline";
+  scoreBoard_div.style.display="none";
   // 2. set mode to single
   mode = 'single';
 }
@@ -102,6 +102,7 @@ var singleRound = function () {
 var best3Mode = function () {
   // 1. show game UI, using css display property
   document.getElementById("game-ui").style.display="inline";
+
   // 2. set mode to best_of_3
   mode = 'best_of_3';
 }
@@ -110,6 +111,6 @@ single.addEventListener('click', function(){
   singleRound();
 })
 
-best3..addEventListener('click', function(){
+best3.addEventListener('click', function(){
   best3Mode();
 })
