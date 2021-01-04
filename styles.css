@@ -78,7 +78,7 @@ header > h1 {
   outline: none
 }
 
-.round{
+#round{
   display: flex;
   justify-content: center;
   align-items: center;
