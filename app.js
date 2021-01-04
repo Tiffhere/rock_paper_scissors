@@ -62,16 +62,23 @@ function game(userChoice){
   }
   if (mode === 'single') {
     // end game, hide game UI
-    document.getElementById("game-ui").style.display="none";
+    document.getElementById("round").style.display = "flex";
+    document.getElementById("game-ui").style.display= "none";
 
     // reset user and compuer score
+    userScore = 0;
+    computerScore = 0;
     userScore_span.innerHTML = 0;
     computerScore_span.innerHTML = 0;
   } else if (mode === 'best_of_3') {
     if (userScore === 2 || computerScore === 2) {
+      document.getElementById("round").style.display = "flex";
       // end game, hide game UI
       document.getElementById("game-ui").style.display="none";
+      scoreBoard_div.style.display = "none";
       // reset user and compuer score
+      userScore = 0;
+      computerScore = 0;
       userScore_span.innerHTML = 0;
       computerScore_span.innerHTML = 0;
     }
@@ -93,15 +100,18 @@ scissors_div.addEventListener('click', function() {
 
 var singleRound = function () {
   // 1. show game UI, using css display property
-  document.getElementById("game-ui").style.display="inline";
-  scoreBoard_div.style.display="none";
+  document.getElementById("round").style.display = "none";
+  document.getElementById("game-ui").style.display = "block";
+  scoreBoard_div.style.display = "none";
   // 2. set mode to single
   mode = 'single';
 }
 
 var best3Mode = function () {
   // 1. show game UI, using css display property
-  document.getElementById("game-ui").style.display="inline";
+  document.getElementById("round").style.display = "none";
+  document.getElementById("game-ui").style.display = "block";
+  scoreBoard_div.style.display = "block";
 
   // 2. set mode to best_of_3
   mode = 'best_of_3';
